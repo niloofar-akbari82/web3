@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">weight</label>
+    <input placeholder="...Kg" id="weight" type="text">
+    <hr style="width: 25%; margin-left: 0;">
+    <label for="">height</label>
+    <input placeholder="...M" id="height" type="text">
+    <hr style="width: 25%; margin-left: 0;">
+    <button onclick="calculate()">calculate bmi</button>
+    <br>
+    <label for="">the answer is= <span id="bmi"></span></label>
+    <p id="bmiText"></p>
+
+    <script>
+        function calculate() {
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+            let bmi = Math.round(weight / (height ** 2));
+            document.getElementById("bmi").innerText = bmi;
+            if (bmi < 18.5) {
+                document.getElementById("bmiText").innerText=("کمبود وزن");
+            } else if (bmi > 18.5 && bmi < 24.5) {
+                document.getElementById("bmiText").innerText=("وزن سلامت");
+            } else if (bmi > 25 && bmi < 29.9) {
+                document.getElementById("bmiText").innerText=("اضافه وزن");
+            } else {
+                document.getElementById("bmiText").innerText=("چاقی");
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
