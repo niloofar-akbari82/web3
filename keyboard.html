@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo{
+            width: 50px;
+            height: 50px;
+            background-color: cornflowerblue;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body onkeyup="eventFn(event)">
+    <div id="demo">
+
+    </div>
+    <p onclick="alert(this)" style="position: fixed; font-size: 200px; left: 300px; top: 100px;">.</p>
+    <script>
+        let topEl=0;
+        let leftEl=0;
+        function eventFn(e){
+            let speed=20;
+            if (e.key=="ArrowUp"){
+                topEl -=speed
+            }else if(e.key=="ArrowDown"){
+                topEl  +=speed
+            }else if(e.key=="ArrowRight"){
+                leftEl  +=speed
+            }else if(e.key=="ArrowLeft"){
+                leftEl  -=speed
+            }
+            document.getElementById("demo").style.top=`${topEl}px`
+            document.getElementById("demo").style.left=`${leftEl}px`
+        }
+        let topEl2=200;
+        let leftEl2=300;
+        function alert(element){
+            if (topEl2==topEl && leftEl2==leftEl){
+                alert("you win")
+            }
+        }
+    </script>
+</body>
+</html>
