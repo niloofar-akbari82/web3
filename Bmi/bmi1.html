@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="weight" placeholder="kg">
+    <input type="text" id="height" placeholder="m">
+    <button onclick="calculate()">calculate</button>
+    <p id="bmi"></p>
+
+
+    <script>
+        function calculate(){
+            let w=document.getElementById("weight").value;
+            let h=document.getElementById("height").value;
+            let bmi = Math.round(w/(h ** 2));
+            document.getElementById("bmi").innerText=bmi;
+
+        }
+    </script>
+</body>
+</html>

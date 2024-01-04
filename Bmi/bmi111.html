@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bmi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="information">
+        <input type="number" placeholder="weight" id="w">
+        <input type="number" placeholder="height" id="h" step="0.01">
+        <input type="number" placeholder="age" id="a">
+    </div>
+    <button style="margin-top: 10px; font-size: larger;" onclick="calculate()">calculate</button>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">weight</th>
+            <th scope="col">height</th>
+            <th scope="col">age</th>
+            <th scope="col" id="bmi" >bmi</th>
+          </tr>
+        </thead>
+        <tbody id="data">
+
+        </tbody>
+      </table>
+      <script>
+        var peaple=[];
+        function calculate(){
+            let weight= parseFloat(document.getElementById("w").value) ;
+            let height= parseInt(document.getElementById("h").value) ;
+
+            let age=document.getElementById("a").value;
+
+            let bmi=bmi1();
+
+
+            document.getElementById("w").value="";
+            document.getElementById("h").value="";
+            document.getElementById("a").value="";
+         
+
+           
+            peaple.push({w:weight,h:height,a:age,bmi1:bmi});
+
+         
+            refreshTable();
+        
+        };
+        function refreshTable(){
+            document.getElementById("data").innerHTML="";
+            for (let i = 0; i < peaple.length; i++) {
+            document.getElementById("data").innerHTML += `
+            <tr>
+            <td>${peaple[i].w}</td>
+            <td>${peaple[i].h}</td>
+            <td>${peaple[i].a}</td>
+            <td>${peaple[i].bmi1}</td>
+            <td></td>
+          </tr>
+            `
+        }
+        }
+        function bmi1(){
+
+
+
+            let weight=document.getElementById("w").value;
+            let height=document.getElementById("h").value;
+          
+            let bmi1 = Math.round(weight/(height ** 2));
+
+            console.log(bmi1);
+            document.getElementById("bmi").innerText=bmi1;
+            return bmi1;
+
+
+        };
+        
+      </script>
+</body>
+</html>
