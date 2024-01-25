@@ -26,6 +26,42 @@
         console.log(25!==25);
         console.log(25!="25");
         console.log(25!=="25");
+
+
+        var pass=prompt("please enter your password");
+        //console.log(pass=="admin")
+        console.log(pass.length>=8);
+
+        var age=34;
+        var txt=age>18?"ok":"young";
+        console.log(txt);
+
+        var fname=prompt("please enter first name");
+        var lname=prompt("enter last name");
+        console.log(fname=="nill"&&lname=="akbari");
+
+
+        var tmp=6;
+        if(tmp>=30){
+            console.log("the weather is hot")
+        }else if(tmp>=10){
+            console.log("the weather is ok")
+        }else{
+            console.log("its colddddd")
+        }
+
+
+        var favcolor="pink";
+        switch(favcolor){
+            case"pink":
+            console.log("it is pink");
+            break;
+            case"green":
+            console.log("its green");
+            break;
+            default:
+                console.log("naaaaa");
+        }
     </script>
 </body>
 </html>
