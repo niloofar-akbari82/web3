@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var weight=90;
+        var height=1.7;
+        var bmi=weight/(height**2);
+        if(bmi<=18.5){
+            console.log("کمبود وزن")
+        }else if(bmi>18.5 && bmi<=24.5){
+            console.log("وزن سلامت")
+        }else if(bmi>25 && bmi<=29.9){
+            console.log("اضافه وزن")
+        }else{
+            console.log("چاقی")
+        }
+
+        function sum(num1,num2){
+            var num3=num1+num2;
+            console.log(num3)
+            //return num1+num2;
+        }
+        console.log(sum(10,4));
+
+    </script>
+</body>
+</html>
