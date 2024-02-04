@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function multi(){
+            var m=1;
+            for(i=0;i<arguments.length;i++){
+                m=m*arguments[i];
+            }
+            return m;
+        }
+        var m=multi(2,9);
+        console.log(m)
+    </script>
+</body>
+</html>
