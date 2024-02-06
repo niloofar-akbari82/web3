@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Wallet{
+            constructor(fname,currentMoney){
+                this.fname=fname;
+                this.currentMoney=currentMoney;
+            }
+            addMoney(amount){
+                this.currentMoney=this.currentMoney+amount;
+            }
+            minusMoney(amount){
+                this.currentMoney=this.currentMoney-amount;
+            }
+            logMoney(){
+                console.log(`${this.fname} =====> ${this.currentMoney}`);
+            }
+        }
+        let person1=new Wallet("niloofar",2000);
+        person1.minusMoney(3900);
+        person1.logMoney();
+
+        class Wallet1{
+            constructor(fname,currentMoney){
+                this.fname=fname;
+                this._currentMoney=currentMoney;
+            }
+            set currentMoney(value){
+                if(value<0)     this._currentMoney=0;
+                else            this._currentMoney=value;
+            }
+            get currentMoney(){
+                return `${this._currentMoney}$`;
+            }
+        }
+        let person2=new Wallet1("ali",-200);
+        console.log(person2.currentMoney);
+
+    </script>
+</body>
+</html>
