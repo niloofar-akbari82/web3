@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="change(this)">click me</h1>
+    <button id="returnDate" onclick="date">clock</button>
+    <p id="try"></p>
+    <script>
+        function change(id){
+            id.innerHTML="hello"
+        }
+        document.getElementById("returnDate").onclick=date;
+        function date(){
+            document.getElementById("try").innerHTML=Date();
+        }
+    </script>
+</body>
+</html>
