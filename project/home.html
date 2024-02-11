@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        @media screen and (max-width:1120px) {
+            body .container {
+
+                max-width: 900px;
+                min-height: 750px;
+            }
+
+            .container .main .zoom {
+
+                margin: 20px;
+                width: 250px;
+            }
+            .container .main .navbar{
+                width: 250px;
+            }
+
+            .container .main .zoom .img {
+                margin: 10px 60px;
+            }
+
+            .container .main .zoom .title {
+                margin: 0px 60px;
+            }
+
+            .container .main .zoom .title1 {
+                margin: 0px 70px;
+            }
+
+            .container .main .zoom .title2 {
+                margin: 0px 80px;
+            }
+        }
+
+        @media screen and (max-width:970px) {
+            body .container {
+                max-width: 600px;
+                min-height: 950px;
+            }
+
+            .container .main .zoom {
+
+                margin: 20px;
+                width: 250px;
+            }
+            .container .main .navbar{
+                width: 250px;
+            }
+
+            .container .main .zoom .img {
+                margin: 10px 65px;
+            }
+
+            .container .main .zoom .title {
+                margin: 0px 65px;
+            }
+
+            .container .main .zoom .title1 {
+                margin: 0px 75px;
+            }
+
+            .container .main .zoom .title2 {
+                margin: 0px 90px;
+            }
+        }
+
+        @media screen and (max-width:690px) {
+            body .container {
+                max-width: 350px;
+                min-height: 2100px;
+            }
+
+            .container .main .zoom {
+                margin: 20px;
+                width: 300px;
+                height: 220px;
+            }
+            .container .main .navbar{
+                width: 300px;
+                height: 220px;
+            }
+
+            .container .main .zoom .img {
+                margin: 10px 75px;
+            }
+
+            .container .main .zoom .title {
+                margin: 0px 90px;
+            }
+
+            .container .main .zoom .title1 {
+                margin: 0px 100px;
+            }
+
+            .container .main .zoom .title2 {
+                margin: 0px 110px;
+            }
+        }
+
+        @media screen and (max-width:450px) {
+            body .container {
+                max-width: 250px;
+                min-height: 1900px;
+            }
+
+            .container .main .zoom {
+                margin: 20px;
+                width: 200px;
+                height: 200px;
+            }
+
+            .container .main .zoom .img {
+                margin: 10px 50px;
+            }
+
+            .container .main .zoom .title {
+                margin: 0px 40px;
+            }
+
+            .container .main .zoom .title1 {
+                margin: 0px 55px;
+            }
+
+            .container .main .zoom .title2 {
+                margin: 0px 60px;
+            }
+        }
+
+        body {
+            background-color: #BB9CC0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 95vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        body .container {
+            width: 1000px;
+            height: 470px;
+            border: 2px solid rgba(225, 225, 225, 0.516);
+            color: #67729D;
+            border-radius: 10px;
+            padding: 30px 40px;
+        }
+
+        .container .main {
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        body .container .main div {
+            cursor: pointer;
+            background-color: #FED9ED;
+            margin: 15px;
+            width: 220px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .zoom {
+            transition: transform .2s;
+        }
+
+        .zoom:hover {
+            transform: scale(1.1);
+            /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+        .main .img {
+            width: 50%;
+            margin: 10px 55px;
+        }
+
+        .main .title {
+            margin: 0px 50px;
+        }
+
+        .main .title1 {
+            margin: 0px 60px;
+        }
+
+        .main .title2 {
+            margin: 0px 70px;
+        }
+
+        .main .navbar {
+            display: none;
+            height: 0px;
+        }
+        .main .navbar{
+            cursor: pointer;
+            background-color: #FED9ED;
+            margin: 15px;
+            width: 220px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .main .navbar h2{
+            display: flex;
+            justify-content: center;
+        }
+        .main .navbar li{
+            display: flex;
+            justify-content: center;
+            margin-top: 5px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="products zoom" onclick="window.location.assign('products.html')">
+                <img class="img" src="assetes/img1/cosmetics.png" alt="">
+                <h1 class="title">Products</h1>
+            </div>
+            <div class="zoom shopBag" onclick="window.location.assign('shopBag.html')">
+                <img class="img" src="assetes/img1/online-shopping (1).png" alt="">
+                <h1 class="title">Shopbag</h1>
+            </div>
+            <div id="chart" class="zoom register" onclick="navbar()">
+                <img class="img" src="assetes/img1/growth.png" alt="">
+                <h1 class="title1">Charts</h1>
+            </div>
+            <div class="navbar" id="navbar">
+                <h2>SELECT!</h2>
+                <li onclick="window.location.assign('chart.html')">Line</li>
+                <li onclick="window.location.assign('chart2.html')">Pie</li>
+                <li onclick="window.location.assign('chart3.html')">Math</li>
+            </div>
+            <div  class="zoom chart" >
+                <img src="assetes/img1/stopwatch.png" alt="" class="img">
+                <h1 class="title">Timer-t</h1>
+            </div>
+            <div class="zoom calendar" onclick="window.location.assign('calendar.html')">
+                <img src="assetes/img1/appointment.png" alt="" class="img">
+                <h1 class="title">Calendar</h1>
+            </div>
+            <div id="register" class="zoom register" onclick="register()">
+                <img src="assetes/img1/registered.png" alt="" class="img">
+                <h1 class="title">Register</h1>
+            </div>
+            <div class="navbar" id="navbar2">
+                <h2>SELECT!</h2>
+                <li onclick="window.location.assign('register.html')">1</li>
+                <li onclick="window.location.assign('table.html')">2</li>
+            </div>
+            <div class="zoom bmi" onclick="window.location.assign('bmi.html')">
+                <img src="assetes/img1/bmi.png" alt="" class="img">
+                <h1 class="title">Cal-Bmi</h1>
+            </div>
+            <div class="zoom change" onclick="window.location.assign('change.html')">
+                <img class="img" src="assetes/img1/change.png" alt="">
+                <h1 class="title1">Change</h1>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        function navbar(){
+            document.getElementById("navbar").style.display="block";
+            document.getElementById("chart").style.display="none";
+        }
+        function register(){
+            document.getElementById("navbar2").style.display="block";
+            document.getElementById("register").style.display="none";
+        }
+    </script>
+</body>
+
+</html>

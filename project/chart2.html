@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pie-chart</title>
+    <style>
+        .btn-img{
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-img button {
+            border-radius: 10px;
+            background-color: rgb(164, 40, 164);
+            padding: 2px 10px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn-img">
+        <button onclick="exit()">Back Home</button>
+    </div>
+    <div style="width: 40%;margin: auto;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['ادمین', 'مدیر', 'فروشنده', 'کارمند', 'پیک', 'مدیرعامل'],
+                datasets: [{
+                    label: 'سود برای قشر های مختلف',
+                    data: [12, 90, 16, 29, 12, 73],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        function exit() {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You will come back to home!",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.assign('home.html');
+                }
+            });
+            
+        };
+        
+    </script>
+</body>
+
+</html>

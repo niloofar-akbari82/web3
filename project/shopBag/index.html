@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body .products {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .products .pro {
+            background-color: pink;
+            width: 30%;
+
+        }
+
+        .products .pro img {
+            width: 50%;
+            display: flex;
+            margin: auto;
+        }
+
+        .products .pro .control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .pro .control input {
+            width: 20%;
+        }
+
+        .pro h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pro .amount {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="products" id="products">
+
+    </div>
+
+
+    <script>
+        let products = [
+            {
+                id: 1,
+                title: "jewelry-1",
+                image: "assetes/img/506520f207b1ebe81143525440c81169.jpg",
+                discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, unde!",
+                price: 2000,
+                amount: 25,
+            }, {
+                id: 2,
+                title: "jewelry-2",
+                image: "assetes/img/bb1ea71a5fde954a369eec2159546384.jpg",
+                discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, unde!",
+                price: 1900,
+                amount: 15,
+            }, {
+                id: 3,
+                title: "jewelry-3",
+                image: "assetes/img/ed0f0f97cca59745e36297bfd8a16acb.jpg",
+                discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, unde!",
+                price: 700,
+                amount: 7,
+            },
+        ];
+        let cart = [];
+        products.forEach(function (item) {
+            document.getElementById("products").innerHTML += `
+            <div class="pro">
+            <h1>${item.title}</h1>
+            <img src="${item.image}" alt="">
+            <h5>${item.discription}</h5>
+            <h1>${item.price}</h1>
+            <h1 class="amount">${item.amount}</h1>
+            <div class="control">
+                <button onclick="add(${item.id})">+</button>
+                <input type="text" value="0" data-product-count="${item.id}">
+                <button onclick="remove(${item.id})">-</button>
+            </div>
+        </div>`
+        });
+        function add(id) {
+            let index = cart.findIndex(function (item) {
+                return item.products_id == id;
+            });
+            let p=getProductById(id)
+            if (index == -1) {
+                cart.push({
+                    products_id: id,
+                    products_title: p.title,
+                    products_price: p.price,
+                    count: 1,
+                    total_price: p.price,
+                });
+                document.querySelector(`[data-product-count="${p.id}"]`).value=1;
+            } else {
+                cart[index].count += 1;
+                cart[index].total_price=cart[index].count *cart[index].products_price;
+                document.querySelector(`[data-product-count="${p.id}"]`).value=cart[index].count;
+            }
+            
+            console.log(cart);
+        };
+        function remove(id) {
+            let index = cart.findIndex(function (item) {
+                return item.products_id == id;
+            });
+            let p=getProductById(id)
+            if (index == -2) {
+                cart.push({
+                    products_id: id,
+                    products_title: p.title,
+                    products_price: p.price,
+                    count: 1,
+                    total_price: p.price,
+                });
+                document.querySelector(`[data-product-count="${p.id}"]`).value=1;
+            } else {
+                cart[index].count -= 1;
+                cart[index].total_price=cart[index].count *cart[index].products_price;
+                document.querySelector(`[data-product-count="${p.id}"]`).value=cart[index].count;
+                if (cart[index].count=0){
+                    document.querySelector(`[data-product-count="${p.id}"]`).value="0";
+                }
+            }
+            
+            console.log(cart);
+        };
+        function getProductById(id) {
+            let index=products.findIndex(function (item) {
+                return item.id == id;
+            });
+            return products[index];
+        };
+
+
+    </script>
+</body>
+
+</html>

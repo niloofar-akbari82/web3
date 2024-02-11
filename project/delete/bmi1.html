@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dist/output.css" />
+    <link rel="shortcut icon" href="assets/bmi/16.svg" type="image" />
+    <title>BMI</title>
+</head>
+
+<body class="bg-rose-300">
+    <div class="container mx-auto h-screen flex items-center justify-center">
+        <div class="left">
+            <img src="assets/bmi/7.svg" id="bmiImage" class="h-auto ml-7 lg:ml-0 max-w-full rounded-lg" alt="" />
+            <p id="bmiResult" style="font-weight: bold" class="text-2xl text-center ml-10"></p>
+        </div>
+        <div class="right ml-10">
+            <h1 style="font-size: 35px; font-weight: bold; margin-bottom: 4px" class="mx-2">Your BMI 🫣</h1>
+            <div class="mb-6 mx-3">
+                <label for="large-input" class="block mb-2 text-3xl font-medium">Height (cm)</label>
+                <input type="text" id="height"
+                    class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xl sm:text-md" />
+            </div>
+            <div class="mb-6 mx-3">
+                <label for="large-input" class="block mb-2 text-3xl font-medium">Weight (kg)</label>
+                <input type="text" id="weight"
+                    class="block mb-2 w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xl sm:text-md" />
+            </div>
+            <button onclick="clacBMI()"
+                class="bg-teal-700 hover:bg-teal-900 text-xl text-center text-white font-bold py-4 px-5 mx-2 rounded-full">
+                Calculate
+            </button>
+            <button onclick="resetBMI()"
+                class="bg-teal-700 hover:bg-teal-900 text-xl text-center text-white font-bold py-4 px-5 mx-2 rounded-full">
+                Reset
+            </button>
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------------------------------------------------- -->
+    <script>
+        function clacBMI() {
+            let weight = Number(document.getElementById("weight").value);
+            let height = Number(document.getElementById("height").value);
+            let bmi = Math.round(weight / height ** 2);
+            console.log("your bmi is ${bmi}");
+            let textBMI = document.getElementById("bmiResult");
+            let imgBMI = document.getElementById("bmiImage");
+            if (bmi < 18) {
+                textBMI.innerText = ("oh! your BMI is ${bmi}, that is too low 😟");
+                imgBMI.src = "assets/bmi/10.svg";
+            } else if (bmi > 18 && bmi < 24) {
+                textBMI.innerText =
+                    ("Wow! your BMI is ${ bmi }, that is good 😍")
+                ;
+                imgBMI.src = "assets/bmi/8.svg";
+            } else if (bmi > 24) {
+                textBMI.innerText =
+                    ("Um..your BMI is ${ bmi }, that is too high 😢");
+                imgBMI.src = "assets/bmi/2.svg";
+            } else {
+                textBMI.innerText = "Please enter valid number";
+            }
+        }
+        function resetBMI() {
+            let weight = Number((document.getElementById("weight").value = ""));
+            let height = Number((document.getElementById("height").value = ""));
+            document.getElementById("bmiResult").innerText = "";
+            document.getElementById("bmiImage").src = "assets/bmi/7.svg";
+        }
+    </script>
+</body>
+
+</html>

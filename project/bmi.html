@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <style>
+        @media screen and (max-width:550px) {
+            body .main{
+                max-width: 330px;
+                margin: auto;
+            }
+            .main .details .img{
+                width: 50%;
+                height: 150px;
+                margin: auto;
+            }
+            .main .inputs{
+                margin: auto;
+            }
+        }
+        @media screen and (max-width:430px) {
+            body .main{
+                max-width: 280px;
+                margin: auto;
+            }
+            .main .details .img{
+                margin-top: 10px;
+                width: 30%;
+                height: 110px;
+            }
+            .inputs input{
+                background-color: aqua;
+                max-width: 130px;
+            }
+            .answer{
+                max-width: 350px;
+            }
+        }
+        @media screen and (max-width:400px) {
+            body .main{
+                max-width: 200px;
+                min-height: 250px;
+                margin: auto;
+            }
+            .main .details{
+                display: block;
+            }
+            .main .inputs{
+                display: block;
+            }
+            .main .details .img{
+                display: block;
+                width: 35%;
+                height: 100px;
+            }
+            .answer{
+                max-width: 300px;
+            }
+        }
+        body {
+            background-color: #94AF9F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        body .img {
+            width: 30%;
+        }
+
+        body .main {
+            width: 420px;
+            background-color: #DBE4C6;
+            border: 2px solid rgba(225, 225, 225, .2);
+            box-shadow: 0 0 10 rgba(0, 0, 0, .2);
+            border-radius: 10px;
+            padding: 30px 40px;
+        }
+
+        .main .details {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .inputs {
+            margin-left: 50px;
+        }
+
+        .main .details input {
+            display: block;
+            background-color: bisque;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .main .details button {
+            background-color: #BBD6B8;
+            border-radius: 10px;
+            margin-left: 12px;
+            padding: 10px;
+        }
+
+        .answer {
+            width: 420px;
+            margin-top: 100px;
+            margin-left: 30PX;
+            display: flex;
+        }
+        .answer img{
+            width: 50%;
+            height: 50%;
+        }
+        .result{
+            margin-left: 20px;
+        }
+        button .btn{
+            margin-top: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="main">
+            <div class="details">
+                <img class="img" src="assetes/img1/bmi.png" alt="">
+                <div class="inputs">
+                    <input id="weight" type="text" placeholder="Enter your weight(kg...)">
+                    <input id="height" type="text" placeholder="Enter your height (M...)">
+                    <button onclick="calculate()">Calculate</button>
+                </div>
+            </div>
+           
+        </div>
+        <div class="answer">
+            <img  id="bmiImage" >
+            <div class="result">
+                <p style="font-size: 50px;" id="bmi"></p>
+                <p style="font-size: 50px;" id="bmiText"></p>
+            </div>
+
+        </div>
+    </div>
+    
+    <script>
+        function calculate(){
+            let weight=document.getElementById("weight").value;
+            let height=document.getElementById("height").value;
+            let bmi=Math.round(weight/(height**2));
+            let imgBmi = document.getElementById("bmiImage");
+            document.getElementById("bmi").innerText ="bmi="+ bmi;
+            if (bmi < 18.5) {
+                document.getElementById("bmiText").innerText=("Underweight");
+                imgBmi.src="assetes/bmi/anorexia.png";
+            } else if (bmi > 18.5 && bmi < 24.5) {
+                document.getElementById("bmiText").innerText=("Healthy weight");
+                imgBmi.src="assetes/bmi/weight-loss.png";
+            } else if (bmi > 25 && bmi < 29.9) {
+                document.getElementById("bmiText").innerText=("Overweight");
+                imgBmi.src="assetes/bmi/obesity.png";
+            } else {
+                document.getElementById("bmiText").innerText=("Fat");
+                imgBmi.src="assetes/bmi/obesity1.png";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

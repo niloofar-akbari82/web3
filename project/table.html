@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin-top: 20px;
+            width: 100%;
+        }
+        thead{
+            background-color: lightblue;
+        }
+        table thead tr th{
+            border: 2px solid black;
+            border-collapse:collapse ;
+        }
+        tbody{
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" placeholder="first name" id="fname">
+    <input type="text" placeholder="last name" id="lname">
+    <button id="registerUser">register</button>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>fname</th>
+                <th>lname</th>
+                <th>operation</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        let id=0;
+        $("#registerUser").click(function(){
+            let fname=$("#fname").val()
+            let lname=$("#lname").val()
+            $("#fname").val("");
+            $("#lname").val("");
+            id++
+            $("#tbody").append(`<tr>
+                <th>${id}</th>
+                <th>${fname}</th>
+                <th>${lname}</th>
+                <th><button class="remove">delete</button></th>
+            </tr>`);
+            $("body").on("click",".remove",function(){
+                $(this).parents("tr").remove()
+            })
+        })
+
+
+    </script>
+</body>
+</html>
