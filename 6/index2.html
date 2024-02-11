@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal{
+            width:400px;
+            height: 600px;
+            background-color: chocolate; 
+            position: relative;
+            bottom: 0;
+            top: -600px;
+            transition: 1s;
+        }
+        .show{
+            bottom: 0;
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <img style="width: 80px; position: absolute;" onclick="showModal()" src="assetes/text-right.svg" alt="">
+    <div class="modal" id="modal1">
+        <span  onclick="hideModal()" style="font-size: xx-large;">x</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, perferendis</p>
+        
+    </div>
+    <script>
+        function showModal(){
+            document.getElementById("modal1").classList.add("show");
+        }
+        function hideModal(){
+            document.getElementById("modal1").classList.remove("show");
+        }
+    </script>
+</body>
+</html>

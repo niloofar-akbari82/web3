@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .game{
+        display: flex;
+    }
+    .itemes{
+        border: 1px solid black;
+        width:50px;
+        height: 50px;
+    }
+</style>
+<body>
+    <div class="game">
+        <div class="itemes" onclick="iteme(this)"></div>
+        <div class="itemes" onclick="iteme(this)"></div>
+        <div class="itemes" onclick="iteme(this)"></div>
+        <div class="itemes" onclick="iteme(this)"></div>
+        <div class="itemes" onclick="iteme(this)"></div>
+    </div>
+
+    <script>
+        function iteme(element){
+            element.style.backgroundColor="red"
+            
+        }
+    </script>
+</body>
+</html>

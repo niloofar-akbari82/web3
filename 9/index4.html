@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="" id="searchInput" placeholder="id">
+        <button id="searchBtn">search</button>
+    </div>
+    <div id="demo"></div>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $("#searchBtn").click(function(){
+            let id=$("#searchInput").val();
+            getById(id)
+        })
+        function getById(id){
+
+            var settings = {
+            "url": `https://jsonplaceholder.typicode.com/posts/${id}`,
+            "method": "GET",
+            "timeout": 0,
+        };
+
+        $.ajax(settings).done(function (response) {
+            $("#demo").empty();
+            $("#demo").append(`<h1>${response.id}-${response.title}</h1>`);
+            $("#demo").append(`<p>${response.body}</p>`);
+        });
+        }
+        
+    </script>
+</body>
+
+</html>
