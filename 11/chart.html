@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div style="width: 50%; height: 50vh">
+            <canvas id="myChart"></canvas>
+        </div>
+        <button onclick="showSin()">sin</button>
+        <button onclick="showCos()">cos</button>
+        <button onclick="showSqr()">x^2</button>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            // initial data
+            let x = [];
+            for (let i = -3.141; i <= 3.141; i += 0.1) {
+                x.push(i);
+            }
+            let y = [];
+            for (let i = 0; i < x.length; i++) {
+                y[i] = Math.sin(x[i]);
+            }
+            const ctx = document.getElementById("myChart");
+
+            let ch = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: x,
+                    datasets: [
+                        {
+                            label: "# of Votes",
+                            data: y,
+                            borderWidth: 1,
+                        },
+                    ],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        },
+                    },
+                },
+            });
+
+            //show Sin function
+            function showSin() {
+                let y = [];
+                for (let i = 0; i < x.length; i++) {
+                    y[i] = Math.sin(x[i]);
+                }
+                ch.data.datasets[0].data = y;
+                ch.update();
+            }
+            //show Sin function
+            function showCos() {
+                let y = [];
+                for (let i = 0; i < x.length; i++) {
+                    y[i] = Math.cos(x[i]);
+                }
+                ch.data.datasets[0].data = y;
+                ch.update();
+            }
+
+            //show Sqr function
+            function showSqr() {
+                let y = [];
+                for (let i = 0; i < x.length; i++) {
+                    y[i] = x[i] ** 2;
+                }
+                ch.data.datasets[0].data = y;
+                ch.update();
+            }
+        </script>
+    </body>
+</html>

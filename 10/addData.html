@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <input type="text" id="title" />
+            <input type="text" id="author" />
+            <button id="registerBtn">Register</button>
+        </div>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script>
+            $("#registerBtn").click(function () {
+                const title = $("#title").val();
+                const author = $("#author").val();
+
+                var settings = {
+                    url: "http://localhost:3000/posts",
+                    method: "POST",
+                    timeout: 0,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    data: JSON.stringify({
+                        title: title,
+                        Author: author,
+                    }),
+                };
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+            });
+        </script>
+    </body>
+</html>

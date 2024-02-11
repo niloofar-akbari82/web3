@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>All Posts</title>
+    </head>
+    <body>
+        <!--   -->
+        <div id="demo"></div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script>
+            function showAllPosts() {
+                $("#demo").empty();
+                var settings = {
+                    url: "http://localhost:3000/posts",
+                    method: "GET",
+                    timeout: 0,
+                };
+
+                $.ajax(settings).done(function (response) {
+                    for (let i = 0; i < response.length; i++) {
+                        $("#demo").append(
+                            `<h2>  ID : ${response[i].id}---Title : ${response[i].title}  Author: ${response[i].Author}</h2>
+                            <button class = "delete-post" data-post-id ="${response[i].id}" > Delete </button>
+                            `
+                        );
+                    }
+                });
+            }
+            showAllPosts();
+
+            function deletePosts(id) {
+                var settings = {
+                    url: `http://localhost:3000/posts/${id}`,
+                    method: "DELETE",
+                    timeout: 0,
+                };
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+            }
+
+            $(document).on("click", ".delete-post", function () {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const id = $(this).attr("data-post-id");
+                        deleteItem(id);
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success",
+                        });
+                    }
+                });
+            });
+
+            function deleteItem(id) {
+                var settings = {
+                    url: `http://localhost:3000/posts/${id}`,
+                    method: "DELETE",
+                    timeout: 0,
+                };
+
+                $.ajax(settings).done(function (response) {
+                    showAllPosts();
+                });
+            }
+        </script>
+    </body>
+</html>
