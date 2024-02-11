@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <ul class="count-down list-unstyled">
+            <li id="days" class="count-number list-inline-item px-4"></li>
+            <li id="hours" class="count-number list-inline-item px-4"></li>
+            <li id="mins" class="count-number list-inline-item px-4"></li>
+            <li id="secs" class="count-number list-inline-item px-4"></li>
+            <li id="end" class="h1"></li>
+        </ul>
+        <script>
+            let oneDay = 1000 * 60 * 60 * 24;
+            let oneHour = 1000 * 60 * 60; //mili second of hour
+            let oneMin = 1000 * 60;
+            let oneSec = 1000;
+            let t = 100000000;
+            console.log(Math.floor(t / oneDay));
+            console.log(Math.floor((t % oneDay) / oneHour));
+            console.log(Math.floor((t % oneHour) / oneMin));
+            console.log(Math.floor((t % oneMin) / oneSec));
+
+            try {
+                if (document.getElementById("days")) {
+                    // The data/time we want to countdown to
+                    var eventCountDown = new Date("December 25, 2024 16:37:52").getTime();
+
+                    // Run myfunc every second
+                    var myfunc = setInterval(function () {
+                        var now = new Date().getTime();
+                        var timeleft = eventCountDown - now;
+
+                        // Calculating the days, hours, minutes and seconds left
+                        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor(
+                            (timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+                        );
+                        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+                        // Result is output to the specific element
+                        document.getElementById("days").innerHTML =
+                            days + "<p class='count-head'>روز</p> ";
+                        document.getElementById("hours").innerHTML =
+                            hours + "<p class='count-head'>ساعت</p> ";
+                        document.getElementById("mins").innerHTML =
+                            minutes + "<p class='count-head'>دقیقه</p> ";
+                        document.getElementById("secs").innerHTML =
+                            seconds + "<p class='count-head'>ثانیه</p> ";
+
+                        // Display the message when countdown is over
+                        if (timeleft < 0) {
+                            clearInterval(myfunc);
+                            document.getElementById("days").innerHTML = "";
+                            document.getElementById("hours").innerHTML = "";
+                            document.getElementById("mins").innerHTML = "";
+                            document.getElementById("secs").innerHTML = "";
+                            document.getElementById("end").innerHTML = "00:00:00:00";
+                        }
+                    }, 1000);
+                }
+            } catch (err) {}
+        </script>
+    </body>
+</html>
