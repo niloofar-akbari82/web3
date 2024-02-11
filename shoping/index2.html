@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="product" id="product">
+            <div class="p-img">
+                <img src="assetes/img/bb1ea71a5fde954a369eec2159546384.jpg" alt="">
+            </div>
+            <div class="p-name">
+                <h1>bracelet</h1>
+            </div>
+            <div class="p-text">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum
+                    distinctio repellat dignissimos dolore molestias totam porro sit.</p>
+            </div>
+            <div class="p-shop"  id="shop">
+                <button onclick="showOption()" >buy</button>
+                <p>$2700</p>
+            </div>
+            <div class="p-buying" id="buying">
+                <button onclick="add()">+</button>
+                <input id="number" type="text" value="1">
+                <button onclick="hideOption()">-</button>
+            </div>
+        </div>
+        <div class="product" id="product">
+            <div class="p-img">
+                <img src="assetes/img/506520f207b1ebe81143525440c81169.jpg" alt="">
+            </div>
+            <div class="p-name">
+                <h1>earrings</h1>
+            </div>
+            <div class="p-text">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum
+                    distinctio repellat dignissimos dolore molestias totam porro sit.</p>
+            </div>
+            <div class="p-shop" id="shop2">
+                <button onclick="showOption2()">buy</button>
+                <p>$2000</p>
+            </div>
+            <div class="p-buying" id="buying2">
+                <button>+</button>
+                <input type="text" value="1">
+                <button onclick="hideOption2()">-</button>
+            </div>
+        </div>
+        <div class="product" id="product">
+            <div class="p-img">
+                <img src="assetes/img/ed0f0f97cca59745e36297bfd8a16acb.jpg" alt="">
+            </div>
+            <div class="p-name">
+                <h1>bracelet</h1>
+            </div>
+            <div class="p-text">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum
+                    distinctio repellat dignissimos dolore molestias totam porro sit.</p>
+            </div>
+            <div class="p-shop" id="shop3">
+                <button onclick="showOption3()">buy</button>
+                <p>$1900</p>
+            </div>
+            <div class="p-buying" id="buying3">
+                <button>+</button>
+                <input type="text" value="1">
+                <button onclick="hideOption3()">-</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function showOption(){
+            document.getElementById("buying").style.display="block";
+            document.getElementById("shop").style.display="none";
+        }
+        function hideOption(){
+            document.getElementById("buying").style.display="none";
+            document.getElementById("shop").style.display="flex";
+        }
+        function showOption2(){
+            document.getElementById("buying2").style.display="block";
+            document.getElementById("shop2").style.display="none";
+        }
+        function hideOption2(){
+            document.getElementById("buying2").style.display="none";
+            document.getElementById("shop2").style.display="flex";
+        }
+        function showOption3(){
+            document.getElementById("buying3").style.display="block";
+            document.getElementById("shop3").style.display="none";
+        }
+        function hideOption3(){
+            document.getElementById("buying3").style.display="none";
+            document.getElementById("shop3").style.display="flex";
+        }
+
+        function add(){
+            document.getElementById("number").innerText++
+        }
+    </script>
+</body>
+</html>

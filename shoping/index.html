@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="icon">
+        <img src="assetes/img/cart-outline.svg" alt="">
+    </div>
+    <div class="container" id="products">
+
+    </div>
+
+    <script>
+        let products = [{
+            id: 1,
+            img: "assetes/img/bb1ea71a5fde954a369eec2159546384.jpg",
+            title: "bracelet",
+            discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum distinctio repellat dignissimos dolore molestias totam porro sit.",
+            price: 2700,
+            inventory: 10,
+        }, {
+            id: 2,
+            img: "assetes/img/506520f207b1ebe81143525440c81169.jpg",
+            title: "earrings",
+            discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum distinctio repellat dignissimos dolore molestias totam porro sit.",
+            price: 2000,
+            inventory: 12,
+        }, {
+            id: 3,
+            img: "assetes/img/ed0f0f97cca59745e36297bfd8a16acb.jpg",
+            title: "bracelet",
+            discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum distinctio repellat dignissimos dolore molestias totam porro sit.",
+            price: 1900,
+            inventory: 3,
+        }]
+        let cart = [];
+        products.forEach(function (item) {
+            document.getElementById("products").innerHTML +=
+                `<div class="product" id="product">
+            <div class="p-img">
+                <img src="${item.img}" alt="">
+            </div>
+            <div class="p-name">
+                <h1>${item.title}</h1>
+            </div>
+            <div class="p-text">
+                <p>${item.discription}</p>
+                <p> inventory: ${item.inventory}</p>
+            </div>
+            <div class="p-shop">
+                <button onclick="addToCart(${item.id})">+</button>
+                <input value="0" >
+                <button onclick="removeToCart(${item.id})">- </button>
+                <p>${item.price}</p>
+               
+            </div>
+        </div>`
+        })
+
+        function addToCart(id) {
+            let index = cart.findIndex(function (item) {
+                return item.product - id == id
+            })
+            if (index == -1) {
+                let p = getElementById(id);
+                cart.push({
+                    product_id: id,
+                    product_title: p.title,
+                    product_price: p.price,
+                    count: 1,
+                    total_price: p.price,
+                })
+            } else {
+                cart[index].count += 1;
+                cart[index].total_price=cart[index].count*cart[index].product_price;
+            }
+
+            console.log(cart)
+        }
+        function grtElementById(id){
+            products.findIndex(function(item){
+                return item.id==id;
+            })
+            return products[index];
+        }
+    </script>
+</body>
+
+</html>

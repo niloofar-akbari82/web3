@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="products">
+    </div>
+    <script>
+        let products=[{
+            id:1,
+            img:"assetes/img/506520f207b1ebe81143525440c81169.jpg",
+            title:"hi",
+            discription:"Lorem ipsum dolor sit amet.",
+            price:2000,
+            mojody:12,
+
+        },{
+            id:2,
+            img:"assetes/img/506520f207b1ebe81143525440c81169.jpg",
+            title:"bye",
+            discription:"Lorem ipsum dolor sit amet.",
+            price:1500,
+            mojody:10,
+    }]
+    products.forEach(function (item) {
+            document.getElementById("products").innerHTML +=
+                `<div class="product" id="product">
+            <div class="p-img">
+                <img src="${item.img}" alt="">
+            </div>
+            <div class="p-name">
+                <h1>${item.title}</h1>
+            </div>
+            <div class="p-text">
+                <p>${item.discription}</p>
+            </div>
+            <div class="p-shop">
+                <button onclick="addToCart(${item.id})">+</button>
+                <button onclick="removeToCart(${item.id})">-</button>
+                <p>${item.price}</p>
+            </div>
+        </div>`
+        })
+    </script>
+</body>
+</html>

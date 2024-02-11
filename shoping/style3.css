@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@media screen and (max-width:1100px) {
+    .product .p-shop button {
+        margin: 3px;
+    }
+    body .icon{
+        width: 5%;
+    }
+}
+@media screen and (max-width:1000px) {
+    .products .product{
+        width: 40%;
+        margin: 20px 10px;
+    }
+    .product .p-shop{
+        display: block;
+    }
+    .products .product .p-shop{
+        width: 100%;
+    }
+    .products .product .p-shop button{
+        width: 75%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .products .product .p-shop p{
+        width: 75%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body .icon{
+        width: 8%;
+    }
+}
+@media screen and (max-width:700px) {
+    .products .product{
+        width: 75%;
+        margin-top: 20px;
+    }
+    .products .product .p-shop{
+        width: 100%;
+    }
+    .products .product .p-shop button{
+        width: 75%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body .icon{
+        width: 15%;
+    }
+}
+
+
+body {
+    background-color: #E4D0D0;
+}
+body .icon{
+    width: 5%;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+}
+
+.product {
+
+    background-color: #D5B4B4;
+    width: 30%;
+    margin-top: 20px;
+}
+
+.product .p-img {
+    display: flex;
+    justify-content: center;
+}
+
+.product .p-img img {
+    width: 75%;
+    padding-top: 15px;
+}
+
+.product .p-name h1 {
+    display: flex;
+    justify-content: center;
+}
+.p-text{
+    padding: 5px;
+}
+.p-shop{
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto; 
+}
+.p-shop button{
+    padding: 10px 50px;
+    color: white;
+    background-color: green;
+    border-radius: 30px;
+    border: 2px solid green;
+    margin: 5px;
+}
+.p-shop p{
+    font-size: x-large;
+    padding-top: 8px;
+    
+}
+.p-buying{
+    display: none;
+    margin: 10px;
+}
+.p-buying button{
+    padding: 5px;
+}
+.p-buying input{
+    width: 30px;
+}
+.p-shop .input{
+    width: 20px;
+    height: 30px;
+    margin-top: 10px;
+}

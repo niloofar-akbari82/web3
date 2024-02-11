@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+
+<body>
+    <div class="products" id="products">
+
+    </div>
+
+
+    <script>
+        let products = [
+            {
+                id: 1,
+                title: "bracelet",
+                img: "assetes/img/bb1ea71a5fde954a369eec2159546384.jpg",
+                price: 2700,
+                discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum",
+                inventory: 24,
+            }, {
+                id: 2,
+                title: "earrings",
+                img: "assetes/img/506520f207b1ebe81143525440c81169.jpg",
+                price: 2000,
+                discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum",
+                inventory: 20,
+            }, {
+                id: 3,
+                title: "bracelet",
+                img: "assetes/img/ed0f0f97cca59745e36297bfd8a16acb.jpg",
+                price: 1900,
+                discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum",
+                inventory: 15,
+            }
+        ];
+        let cart = [];
+        products.forEach(function (item) {
+            document.getElementById("products").innerHTML += `
+        <div class="product" id="product">
+            <div class="p-img">
+                <img src="${item.img}" alt="">
+            </div>
+            <div class="p-name">
+                <h1>${item.title}</h1>
+            </div>
+            <div class="p-text">
+                <p>${item.discription}</p>
+                <p>inventory:${item.inventory}</p>
+            </div>
+            <div class="p-shop"  id="shop">
+               
+                <button onclick="addToCart(${item.id})">+</button>
+                <input class="input" value="0" data-product-count="${item.id}">
+                <button onclick="removeToBox(${item.id})">-</button>
+                <p>${item.price}</p>
+            </div>
+            
+        </div>
+            `
+        });
+        function addToCart(id) {
+            let index = cart.findIndex(function (item) {
+                return item.product_id == id
+            });
+            let p =getProductById(id)
+            if (index == -1) {
+                
+                cart.push({
+                    product_id: id,
+                    product_title: p.title,
+                    product_price: p.price,
+                    count: 1,
+                    total_price: p.price,
+                });
+                document.querySelector(`[data-product-count="${p.id}"]`).value=1;
+            } else {
+
+                cart[index].count += 1
+                cart[index].total_price=cart[index].count*cart[index].product_price;
+                document.querySelector(`[data-product-count="${p.id}"]`).value=cart[index].count
+            }
+           
+            console.log(cart)
+        }
+
+        function getProductById(id){
+            let index=products.findIndex(function(item){
+                return item.id==id
+            })
+            return products[index]
+        }
+    </script>
+</body>
+
+</html>

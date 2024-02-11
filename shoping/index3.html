@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+
+<body>
+    <div class="products" id="products">
+
+    </div>
+
+
+    <script>
+        let products = [
+            {
+                id: 1,
+                title: "bracelet",
+                img: "assetes/img/bb1ea71a5fde954a369eec2159546384.jpg",
+                price: 2700,
+                discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum",
+                inventory: 24,
+            }, {
+                id: 2,
+                title: "earrings",
+                img: "assetes/img/506520f207b1ebe81143525440c81169.jpg",
+                price: 2000,
+                discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum",
+                inventory: 20,
+            }, {
+                id: 3,
+                title: "bracelet",
+                img: "assetes/img/ed0f0f97cca59745e36297bfd8a16acb.jpg",
+                price: 1900,
+                discription: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum reprehenderit perspiciatis nostrum",
+                inventory: 15,
+            }
+        ];
+        function addToBox(){
+            alert("added to box")
+        }
+        products.forEach(function (item) {
+            document.getElementById("products").innerHTML += `
+        <div class="product" id="product">
+            <div class="p-img">
+                <img src="${item.img}" alt="">
+            </div>
+            <div class="p-name">
+                <h1>${item.title}</h1>
+            </div>
+            <div class="p-text">
+                <p>${item.discription}</p>
+            </div>
+            <div class="p-shop"  id="shop">
+                <button onclick="addToBox(${item.id})">buy</button>
+                <p>${item.price}</p>
+            </div>
+            <div class="p-buying" id="buying">
+                <button>+</button>
+                <input type="text" value="1">
+                <button onclick="hideOption()">-</button>
+            </div>
+        </div>
+            `
+        });
+        
+    </script>
+</body>
+
+</html>
